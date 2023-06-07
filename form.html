@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validate(){
+            var firstName=document.getElementById("firstname").value
+            var mobile=document.getElementById("mobile").value
+            var email=document.getElementById("email").value
+            var pwd=document.getElementById("pwd").value
+            var amobile=document.getElementById("amobile").value
+
+            var firstNameCheck=/^[a-zA-Z]+$/
+            var mobileCheck=/^[0-9]{10}$/
+            var emailCheck=/^[a-z0-9.#]+@[a-z]+\.[a-z]{2,3}$/
+            var pwdCheck=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
+            var amobileCheck=/^(\+\d{1,2}\s?)?(\()?\d{3}(\))?[-.\s]?\d{3}[-.\s]?\d{4}$/
+
+            //mahitak333@gmail.com
+            if(firstName==""||firstName.lenght<3){
+                alert("Enter the data")
+                return false
+            }
+            if(!firstName.match(firstNameCheck)){
+                alert("Name must carry only alphabets")
+                return false
+            }
+            if(!mobile.match(mobileCheck)){
+                alert("Please check your mobile number")
+                return false
+            }
+            if(!amobile.match(amobileCheck)){
+                alert("Please check your america mobile number")
+                return false
+            }
+            if(!email.match(emailCheck)){
+                alert("Please enter valid email")
+                return false
+            }
+            if(!pwd.match(pwdCheck)){
+                alert("Check your password")
+                return false
+            }
+            return true
+        }
+    </script>
+    <form onsubmit="return validate()">
+        <p><input type="text" placeholder="Enter firstname" id="firstname"/></p>
+        <p><input type="text" placeholder="Enter your mobile number" id="mobile"/></p>
+        <p><input type="text" placeholder="Enter your america mobile number" id="amobile"/></p>
+        <p><input type="text" placeholder="Enter your email" id="email"/></p>
+        <p><input type="password" placeholder="Enter your password" id="pwd"/></p>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
